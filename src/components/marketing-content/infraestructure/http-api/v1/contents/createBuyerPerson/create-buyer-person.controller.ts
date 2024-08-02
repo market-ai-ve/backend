@@ -3,7 +3,6 @@ import { CreateBuyerPersonDto } from './create-buyer-person.dto';
 
 @Controller('contents')
 export class ContentsController {
-
-    @Post()
-    createBuyer(@Body() payload: CreateBuyerPersonDto) {}
+  @Post()
+  createBuyer(@Body() payload: CreateBuyerPersonDto) {}
 }
