@@ -1,2 +1,2 @@
-// Entity Buyer Person
+// Buyer Person
 export { BuyerPerson } from './buyerPerson'
