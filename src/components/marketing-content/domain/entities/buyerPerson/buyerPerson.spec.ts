@@ -1,10 +1,7 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { BuyerPerson } from './buyerPerson';
 
 describe('TestCas entity buyer person', () => {
-  beforeAll(() => {
-    let entity: BuyerPerson;
-  });
-
   test('Should return class with passed success params', () => {
     const companyName = 'Company Name';
     const companyDescription = 'Company Description';

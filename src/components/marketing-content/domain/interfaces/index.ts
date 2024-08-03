@@ -1,5 +1,5 @@
 export {
-  BuyerRepository,
+  IBuyerRepository,
   CreateBuyerPersonAI,
   ICreateBuyerPerson,
   IReturnCreatePerson,

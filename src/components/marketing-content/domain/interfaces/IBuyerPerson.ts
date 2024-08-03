@@ -11,8 +11,8 @@ export type ICreateBuyerPerson = Omit<PrimitiviBuyerPerson, 'searchTerms'>;
 export type IReturnCreatePerson = Pick<PrimitiviBuyerPerson, 'searchTerms'>;
 
 // Repository
-export interface BuyerRepository {
-  create(payload: ICreateBuyerPerson): ICreateBuyerPerson;
+export interface IBuyerRepository {
+  create(payload: ICreateBuyerPerson): Promise<void>;
 }
 
 // IA Generate Text
