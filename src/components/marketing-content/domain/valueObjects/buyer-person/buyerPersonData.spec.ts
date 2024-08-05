@@ -1,5 +1,5 @@
 import { BuyerPersonData } from './buyerPersonData';
-import { VOValidationError } from '../../exception/VOValidationError';
+import { VOValidationError } from '../../exceptions';
 
 describe('Test Value Object Buyer person data', () => {
   const arrayData = [
@@ -189,111 +189,111 @@ describe('Test Value Object Buyer person data', () => {
     });
   });
 
-  // describe('Method equals', () => {
-  //   // True Return
-  //   it('should return true when all properties are equal', () => {
-  //     const data1 = new BuyerPersonData(
-  //       'Company A',
-  //       'Description A',
-  //       arrayData,
-  //     );
-  //     const data2 = new BuyerPersonData(
-  //       'Company A',
-  //       'Description A',
-  //       arrayData,
-  //     );
-  //     expect(data1.equals(data2)).toBe(true);
-  //   });
+  describe('Method equals', () => {
+    // True Return
+    it('should return true when all properties are equal', () => {
+      const data1 = new BuyerPersonData(
+        'Company A',
+        'Description A',
+        arrayData,
+      );
+      const data2 = new BuyerPersonData(
+        'Company A',
+        'Description A',
+        arrayData,
+      );
+      expect(data1.equals(data2)).toBe(true);
+    });
 
-  //   // returns true when companyName has different case sensitivity
-  //   it('should return true when companyName has different case sensitivity', () => {
-  //     const data1 = new BuyerPersonData(
-  //       'Company A',
-  //       'Description A',
-  //       arrayData,
-  //     );
-  //     const data2 = new BuyerPersonData(
-  //       'company a',
-  //       'Description A',
-  //       arrayData,
-  //     );
-  //     expect(data1.equals(data2)).toBe(false);
-  //   });
+    // returns true when companyName has different case sensitivity
+    it('should return true when companyName has different case sensitivity', () => {
+      const data1 = new BuyerPersonData(
+        'Company A',
+        'Description A',
+        arrayData,
+      );
+      const data2 = new BuyerPersonData(
+        'company a',
+        'Description A',
+        arrayData,
+      );
+      expect(data1.equals(data2)).toBe(false);
+    });
 
-  //   // False return
+    // False return
 
-  //   // returns false when companyName has leading or trailing spaces
-  //   it('should return false when companyName has leading spaces', () => {
-  //     const data1 = new BuyerPersonData(
-  //       ' Company A',
-  //       'Description A',
-  //       arrayData,
-  //     );
-  //     const data2 = new BuyerPersonData(
-  //       'Company A',
-  //       'Description A',
-  //       arrayData,
-  //     );
-  //     expect(data1.equals(data2)).toBe(false);
-  //   });
+    // returns false when companyName has leading or trailing spaces
+    it('should return false when companyName has leading spaces', () => {
+      const data1 = new BuyerPersonData(
+        ' Company A',
+        'Description A',
+        arrayData,
+      );
+      const data2 = new BuyerPersonData(
+        'Company A',
+        'Description A',
+        arrayData,
+      );
+      expect(data1.equals(data2)).toBe(false);
+    });
 
-  //   // returns false when companyName is a substring of the other
-  //   it('should return false when companyName is a substring of the other', () => {
-  //     const data1 = new BuyerPersonData(
-  //       'Company ABC',
-  //       'Description A',
-  //       arrayData,
-  //     );
-  //     const data2 = new BuyerPersonData('ABC', 'Description A', arrayData);
-  //     expect(data1.equals(data2)).toBe(false);
-  //   });
+    // returns false when companyName is a substring of the other
+    it('should return false when companyName is a substring of the other', () => {
+      const data1 = new BuyerPersonData(
+        'Company ABC',
+        'Description A',
+        arrayData,
+      );
+      const data2 = new BuyerPersonData('ABC', 'Description A', arrayData);
+      expect(data1.equals(data2)).toBe(false);
+    });
 
-  //   // returns false when companyName is completely different
-  //   it('should return false when companyName is completely different', () => {
-  //     const data1 = new BuyerPersonData(
-  //       'Company A',
-  //       'Description A',
-  //       arrayData,
-  //     );
-  //     const data2 = new BuyerPersonData(
-  //       'Company B',
-  //       'Description A',
-  //       arrayData,
-  //     );
-  //     expect(data1.equals(data2)).toBe(false);
-  //   });
+    // returns false when companyName is completely different
+    it('should return false when companyName is completely different', () => {
+      const data1 = new BuyerPersonData(
+        'Company A',
+        'Description A',
+        arrayData,
+      );
+      const data2 = new BuyerPersonData(
+        'Company B',
+        'Description A',
+        arrayData,
+      );
+      expect(data1.equals(data2)).toBe(false);
+    });
 
-  //   // returns false when companyDescription is different
-  //   it('should return false when companyDescription is different', () => {
-  //     const data1 = new BuyerPersonData(
-  //       'Company A',
-  //       'Description A',
-  //       arrayData,
-  //     );
-  //     const data2 = new BuyerPersonData(
-  //       'Company A',
-  //       'Different Description',
-  //       arrayData,
-  //     );
-  //     expect(data1.equals(data2)).toBe(false);
-  //   });
+    // returns false when companyDescription is different
+    it('should return false when companyDescription is different', () => {
+      const data1 = new BuyerPersonData(
+        'Company A',
+        'Description A',
+        arrayData,
+      );
+      const data2 = new BuyerPersonData(
+        'Company A',
+        'Different Description',
+        arrayData,
+      );
+      expect(data1.equals(data2)).toBe(false);
+    });
 
-  //   // returns false when dataSearch is different
-  //   it('should return false when dataSearch is different', () => {
-  //     const dataSearch01 = [arrayData[0], arrayData[1]];
-  //     const dataSearch02 = [arrayData[2], arrayData[4]];
+    // returns false when dataSearch is different
+    it('should return false when dataSearch is different', () => {
+      const dataSearch01 = [arrayData[0], arrayData[1]];
+      const dataSearch02 = [arrayData[2], arrayData[4]];
 
-  //     const data1 = new BuyerPersonData(
-  //       'Company A',
-  //       'Description A',
-  //       dataSearch01,
-  //     );
-  //     const data2 = new BuyerPersonData(
-  //       'Company A',
-  //       'Description A',
-  //       dataSearch02,
-  //     );
-  //     expect(data1.equals(data2)).toBe(false);
-  //   });
-  // });
+      const data1 = new BuyerPersonData(
+        'Company A',
+        'Description A',
+        dataSearch01,
+      );
+      const data2 = new BuyerPersonData(
+        'Company A',
+        'Description A',
+        dataSearch02,
+      );
+      expect(data1.equals(data2)).toBe(false);
+    });
+  });
 });

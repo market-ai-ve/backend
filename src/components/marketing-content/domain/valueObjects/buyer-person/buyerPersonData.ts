@@ -9,7 +9,7 @@ import {
   validateOrReject,
 } from 'class-validator';
 
-import { VOValidationError } from '../../exception/VOValidationError';
+import { VOValidationError } from '../../exceptions';
 
 interface Value {
   companyName: string;
