@@ -1,0 +1,1 @@
+export { BuyerPersonData } from './buyerPersonData';
