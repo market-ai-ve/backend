@@ -165,6 +165,30 @@ describe('Test Value Object Buyer person data', () => {
     });
   });
 
+  describe('Attribute Data Search', () => {
+    it('Should return error when dataSearch is not valid', () => {
+      const name = 'Name';
+      const description = 'Description';
+
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-expect-error
+      const isNotArray = new BuyerPersonData(name, description, 'string');
+      const isArrayEmpty = new BuyerPersonData(name, description, []);
+      const elementNotAllowed = new BuyerPersonData(name, description, [
+        'Is software developer',
+      ]);
+      const isArrayNoUnique = new BuyerPersonData(name, description, [
+        'Genero',
+        'Genero',
+      ]);
+
+      expect(isNotArray.validate(isNotArray)).rejects.toThrow();
+      expect(isArrayEmpty.validate(isArrayEmpty)).rejects.toThrow();
+      expect(elementNotAllowed.validate(elementNotAllowed)).rejects.toThrow();
+      expect(isArrayNoUnique.validate(isArrayNoUnique)).rejects.toThrow();
+    });
+  });
+
   // describe('Method equals', () => {
   //   // True Return
   //   it('should return true when all properties are equal', () => {
