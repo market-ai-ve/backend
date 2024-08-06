@@ -1,8 +1,6 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-// eslint-disable-next-line import/no-unresolved
 import { MODULE_CONTENTS } from '@shared/contants';
-// eslint-disable-next-line import/no-unresolved
 import { BaseUrl, UrlBackend } from '@shared/pathsUrl';
 
 import { CreateBuyerPersonCommandHandler } from './../../../../../application/use-cases/CreateBuyerPerson/create-buyer-person.commandHandler';

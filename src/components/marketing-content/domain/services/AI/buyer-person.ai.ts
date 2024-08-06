@@ -1,4 +1,4 @@
-import { Injectable } from 'src/components/shared/dependecy-injection/injectable';
+import { Injectable } from '@shared/dependecy-injection/injectable';
 
 import { BuyerPerson } from '../../entities';
 import { BuyerPersonData } from '../../valueObjects';

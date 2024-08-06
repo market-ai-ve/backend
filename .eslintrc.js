@@ -52,6 +52,10 @@ module.exports = {
   },
   settings: {
     'import/resolver': {
+      alias: {
+        map: [['@', './src'], ['@shared' './src/components/shared']],
+        extensions: ['.js', '.ts'],
+      },
       typescript: {
         project: './tsconfig.json',
       },

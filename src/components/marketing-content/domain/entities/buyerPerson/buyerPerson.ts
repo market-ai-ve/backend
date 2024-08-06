@@ -2,7 +2,7 @@ import { BuyerPersonData } from './../../valueObjects';
 
 export class GenerateText {
   private readonly generateText: (
-    model,
+    model: any,
     prompt: string,
     option: object,
   ) => Promise<object>;
@@ -10,7 +10,9 @@ export class GenerateText {
   private readonly prompt: string;
   private readonly option: object = {};
 
-  constructor(generateText, model, prompt, option) {
+  constructor(generateText: (model: any,
+    prompt: string,
+    option: object,) => Promise<object>, model: any, prompt: string, option: object) {
     this.generateText = generateText;
     this.model = model;
     this.prompt = prompt;
@@ -39,7 +41,11 @@ export class BuyerPerson {
     return this._value;
   }
 
-  public async create(func, model, prompt, option): Promise<void> {
+  public async create(func: (
+    model: any,
+    prompt: string,
+    option: object,
+  ) => Promise<object>, model: any, prompt: string, option: object): Promise<void> {
     const generateText = new GenerateText(func, model, prompt, option);
     await generateText
       .generate()

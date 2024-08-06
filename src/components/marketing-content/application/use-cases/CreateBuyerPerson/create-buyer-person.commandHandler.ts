@@ -1,5 +1,5 @@
-import { BuyerPersonAIServices } from 'src/components/marketing-content/domain/services/AI/buyer-person.ai';
-import { Injectable } from 'src/components/shared/dependecy-injection/injectable';
+import { BuyerPersonAIServices } from './../../../domain/services/AI/buyer-person.ai';
+import { Injectable } from '@shared/dependecy-injection/injectable';
 
 import { CreateBuyerPersonDto } from './create-buyer-person.dto';
 

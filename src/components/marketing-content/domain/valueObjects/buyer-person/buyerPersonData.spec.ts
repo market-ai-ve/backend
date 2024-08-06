@@ -24,9 +24,9 @@ describe('Test Value Object Buyer person data', () => {
 
     const valueObject = new BuyerPersonData(name, description, search);
 
-    expect(valueObject.value.companyName).toBe(name);
-    expect(valueObject.value.companyDescription).toBe(description);
-    expect(valueObject.value.dataSearch).toBe(search);
+    expect(valueObject.value?.companyName).toBe(name);
+    expect(valueObject.value?.companyDescription).toBe(description);
+    expect(valueObject.value?.dataSearch).toBe(search);
   });
 
   describe('Attribute Company Name', () => {
