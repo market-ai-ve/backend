@@ -38,7 +38,7 @@ export class CreateBuyerPersonCommandHandler {
   }
 
   async run(dto: CreateBuyerPersonDto, sdk: any): Promise<any> {
-    this.prompt
+    const prompt = this.prompt
       .replace('companyName', dto.companyName)
       .replace('companyDescription', dto.companyDescription)
       .replace('dataSearch', dto.dataSearch.join(', '));
@@ -49,7 +49,7 @@ export class CreateBuyerPersonCommandHandler {
       dto.companyDescription,
       dto.dataSearch,
       this.model,
-      this.prompt,
+      prompt,
       this.option,
       sdk,
     );
