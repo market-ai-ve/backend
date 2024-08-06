@@ -1,34 +1,30 @@
 import { BuyerPersonData } from './../../valueObjects';
+import { GenerateTextResult } from "ai";
+
 
 export class GenerateText {
-  private readonly generateText: (
-    model: any,
-    prompt: string,
-    option?: object,
-  ) => Promise<object>;
+  private readonly generateText: ( params: object ) => Promise<object>;
   private readonly model;
   private readonly prompt: string;
-  private readonly option: object = {};
+  // private readonly option: object = {};
 
   constructor(
-    generateText: (
-      model: any,
-      prompt: string,
-      option?: object,
+    generateText: ( 
+      params: object,
     ) => Promise<object>,
     model: any,
     prompt: string,
-    option: object,
   ) {
     this.generateText = generateText;
     this.model = model;
     this.prompt = prompt;
-    this.option = option;
   }
 
   async generate(): Promise<object> {
-    const result = await this.generateText(this.model, this.prompt);
-    return result;
+    // @ts-ignore
+    const { text } = await this.generateText({model: this.model, prompt: this.prompt});
+    const replaceText = text.replace(/```json\s*|\s*```/g, '');
+    return JSON.parse(replaceText);;
   }
 }
 
@@ -50,12 +46,12 @@ export class BuyerPerson {
   }
 
   public async create(
-    func: (model: any, prompt: string, option?: object) => Promise<object>,
+    func: any,
     model: any,
     prompt: string,
-    option: object,
+    // option: object,
   ): Promise<void> {
-    const generateText = new GenerateText(func, model, prompt, option);
+    const generateText = new GenerateText(func, model, prompt);
     await generateText
       .generate()
       .then((buyerPerson) => (this._value = buyerPerson))
