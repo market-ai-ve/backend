@@ -26,9 +26,9 @@ export class GenerateText {
     this.option = option;
   }
 
-  async generate(): Promise<object> {    
+  async generate(): Promise<object> {
     const result = await this.generateText(this.model, this.prompt);
-    return result
+    return result;
   }
 }
 

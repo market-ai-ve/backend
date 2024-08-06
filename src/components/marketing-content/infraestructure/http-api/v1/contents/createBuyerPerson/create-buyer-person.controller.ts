@@ -4,7 +4,7 @@ import { MODULE_CONTENTS } from '@shared/contants';
 import { BaseUrl, UrlBackend } from '@shared/pathsUrl';
 
 import { CreateBuyerPersonCommandHandler } from './../../../../../application/use-cases/CreateBuyerPerson/create-buyer-person.commandHandler';
-import { BuyerPersonAIServices } from "./../../../../../domain/services/AI/buyer-person.ai";
+import { BuyerPersonAIServices } from './../../../../../domain/services/AI/buyer-person.ai';
 import { PROMPT_CREATE_BUYER_PERSON } from './../../../../prompts';
 import { SDK_VERCEL_MODEL_GOOGLE } from './../../../../sdk/vercel-ai';
 import { CreateBuyerPersonDto } from './create-buyer-person.dto';
@@ -17,7 +17,9 @@ import { ConfigService } from '@nestjs/config';
 @Controller(BaseUrl.V1_MO_CONTENTS)
 export class ContentsController {
   constructor(
-    private readonly createBuyerPersonCommandHandler: CreateBuyerPersonCommandHandler = new CreateBuyerPersonCommandHandler(new BuyerPersonAIServices()),
+    private readonly createBuyerPersonCommandHandler: CreateBuyerPersonCommandHandler = new CreateBuyerPersonCommandHandler(
+      new BuyerPersonAIServices(),
+    ),
   ) {}
 
   @Post(UrlBackend.createBuyerPerson)
