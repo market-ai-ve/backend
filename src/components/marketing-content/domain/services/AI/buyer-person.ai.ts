@@ -14,6 +14,12 @@ export class BuyerPersonAIServices {
     option: any,
     generateText: any,
   ) {
+    // const { text } = await generateText({
+    //   model: model,
+    //   prompt: prompt,
+    // })
+
+    // console.log('ESTE ES EL TEXTOOOOO ==> ', text);
     let buyerPerson: BuyerPersonData;
     let createBuyerPerson: BuyerPerson;
 

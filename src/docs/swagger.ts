@@ -5,6 +5,10 @@ export class SwaggerDoc {
   private PATH: string = 'api';
   private APP: INestApplication;
 
+  constructor(app: INestApplication) {
+    this.APP = app;
+  }
+
   // Getters
 
   get path(): string {

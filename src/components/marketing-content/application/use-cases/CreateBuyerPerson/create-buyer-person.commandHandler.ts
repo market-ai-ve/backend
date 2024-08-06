@@ -43,7 +43,7 @@ export class CreateBuyerPersonCommandHandler {
       .replace('companyDescription', dto.companyDescription)
       .replace('dataSearch', dto.dataSearch.join(', '));
 
-    this.buyerPersonRepositoryAIServices = new BuyerPersonAIServices();
+    // this.buyerPersonRepositoryAIServices = new BuyerPersonAIServices();
     const buyerPerson = await this.buyerPersonRepositoryAIServices.create(
       dto.companyName,
       dto.companyDescription,

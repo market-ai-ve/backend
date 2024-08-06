@@ -7,7 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   // Docs
-  const swagger = new SwaggerDoc();
+  const swagger = new SwaggerDoc(app);
   swagger.path = 'api/docs';
   swagger.app = app;
 
