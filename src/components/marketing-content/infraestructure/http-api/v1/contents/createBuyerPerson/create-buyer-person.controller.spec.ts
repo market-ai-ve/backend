@@ -32,11 +32,9 @@ describe('ContentsController', () => {
       dataSearch: ['Edad'],
     };
     // mock commandHandler
-    jest
-      .spyOn(commandHandler, 'run')
-      .mockResolvedValue({
-        term: ['Hello 01', 'Hello 02', 'Hello 03', 'Hello 04', 'Hello 05'],
-      });
+    jest.spyOn(commandHandler, 'run').mockResolvedValue({
+      term: ['Hello 01', 'Hello 02', 'Hello 03', 'Hello 04', 'Hello 05'],
+    });
 
     const result = await controller.createBuyerPerson(dto);
     expect(result).toBe({
