@@ -24,7 +24,7 @@ export class GenerateText {
 
 export class BuyerPerson {
   private _buyerPerson: BuyerPersonData;
-  private _value: object;
+  private _value: object = {};
 
   constructor(buyerPerson: BuyerPersonData) {
     this._buyerPerson = buyerPerson;

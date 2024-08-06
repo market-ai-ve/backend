@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import {
   ArrayNotEmpty,
   ArrayUnique,
@@ -10,11 +11,13 @@ import {
 export class CreateBuyerPersonDto {
   @IsNotEmpty()
   @IsString()
-  readonly companyName: string;
+  @ApiProperty()
+  readonly companyName!: string;
 
   @IsNotEmpty()
   @IsString()
-  readonly companyDescription: string;
+  @ApiProperty()
+  readonly companyDescription!: string;
 
   @IsArray()
   @ArrayNotEmpty()
@@ -32,5 +35,6 @@ export class CreateBuyerPersonDto {
     ],
     { each: true },
   )
-  readonly dataSearch: Array<string>;
+  @ApiProperty()
+  readonly dataSearch!: Array<string>;
 }

@@ -6,7 +6,7 @@ import { CreateBuyerPersonDto } from './create-buyer-person.dto';
 @Injectable()
 export class CreateBuyerPersonCommandHandler {
   private _model: any;
-  private _prompt: string;
+  private _prompt: string = '';
   private _option: any;
 
   constructor(private buyerPersonRepositoryAIServices: BuyerPersonAIServices) {}
