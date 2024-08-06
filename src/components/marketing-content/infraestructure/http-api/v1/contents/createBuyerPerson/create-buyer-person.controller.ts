@@ -9,6 +9,7 @@ import { CreateBuyerPersonCommandHandler } from './../../../../../application/us
 import { PROMPT_CREATE_BUYER_PERSON } from './../../../../prompts';
 import { SDK_VERCEL_MODEL_GOOGLE } from './../../../../sdk/vercel-ai';
 import { CreateBuyerPersonDto } from './create-buyer-person.dto';
+import { SwaggerDoc } from './documentation';
 
 @ApiTags(MODULE_CONTENTS)
 @Controller(BaseUrl.V1_MO_CONTENTS)
@@ -18,6 +19,7 @@ export class ContentsController {
   ) {}
 
   @Post(UrlBackend.createBuyerPerson)
+  @SwaggerDoc.getDoc()
   async createBuyerPerson(
     @Body() payload: CreateBuyerPersonDto,
   ): Promise<{ terms: string[] }> {
