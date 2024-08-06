@@ -1,17 +1,14 @@
 import { BuyerPersonData } from './../../valueObjects';
-import { GenerateTextResult } from "ai";
-
+import { GenerateTextResult } from 'ai';
 
 export class GenerateText {
-  private readonly generateText: ( params: object ) => Promise<object>;
+  private readonly generateText: (params: object) => Promise<object>;
   private readonly model;
   private readonly prompt: string;
   // private readonly option: object = {};
 
   constructor(
-    generateText: ( 
-      params: object,
-    ) => Promise<object>,
+    generateText: (params: object) => Promise<object>,
     model: any,
     prompt: string,
   ) {
@@ -22,9 +19,12 @@ export class GenerateText {
 
   async generate(): Promise<object> {
     // @ts-ignore
-    const { text } = await this.generateText({model: this.model, prompt: this.prompt});
+    const { text } = await this.generateText({
+      model: this.model,
+      prompt: this.prompt,
+    });
     const replaceText = text.replace(/```json\s*|\s*```/g, '');
-    return JSON.parse(replaceText);;
+    return JSON.parse(replaceText);
   }
 }
 
