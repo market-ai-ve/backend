@@ -37,7 +37,7 @@ export class CreateBuyerPersonCommandHandler {
     this._prompt = v;
   }
 
-  async run(dto: CreateBuyerPersonDto, sdk: any): Promise<{ terms: string[] }> {
+  async run(dto: CreateBuyerPersonDto, sdk: any): Promise<any> {
     this.prompt
       .replace('companyName', dto.companyName)
       .replace('companyDescription', dto.companyDescription)
@@ -45,6 +45,9 @@ export class CreateBuyerPersonCommandHandler {
 
     this.buyerPersonRepositoryAIServices = new BuyerPersonAIServices();
     const buyerPerson = await this.buyerPersonRepositoryAIServices.create(
+      dto.companyName,
+      dto.companyDescription,
+      dto.dataSearch,
       this.model,
       this.prompt,
       this.option,

@@ -1,39 +1,51 @@
 import { BuyerPersonData } from './../../valueObjects';
 
-export class BuyerPerson {
-  constructor(
-    readonly data: BuyerPersonData,
-    private buyerPerson?: any,
-  ) {
-    this.buyerPerson = buyerPerson;
-  }
-
-  // Create Buyer Person using IA
-  static async create(
-    generateText: any,
-    model: any,
+export class GenerateText {
+  private readonly generateText: (
+    model,
     prompt: string,
-    option: any,
-  ) {
-    const generate = await generateText({
-      model,
-      prompt,
-      ...option,
-    });
+    option: object,
+  ) => Promise<object>;
+  private readonly model;
+  private readonly prompt: string;
+  private readonly option: object = {};
 
-    return generate;
+  constructor(generateText, model, prompt, option) {
+    this.generateText = generateText;
+    this.model = model;
+    this.prompt = prompt;
+    this.option = option;
   }
 
-  toJson() {
-    return {
-      companyName: this.data.value.companyName,
-      companyDescription: this.data.value.companyDescription,
-      dataSearch: this.data.value.dataSearch,
-      buyerPerson: this.buyerPerson,
-    };
+  async generate(): Promise<object> {
+    return await this.generateText(this.model, this.prompt, this.option);
+  }
+}
+
+export class BuyerPerson {
+  private _buyerPerson: BuyerPersonData;
+  private _value: object;
+
+  constructor(buyerPerson: BuyerPersonData) {
+    this._buyerPerson = buyerPerson;
   }
 
-  toString() {
-    return `company name: ${this.data.value.companyName} \n\ncompany description: ${this.data.value.companyDescription} \n\n data search: ${this.data.value.dataSearch.join(', ')}`;
+  // Getters
+  get buyerPerson() {
+    return this._buyerPerson;
+  }
+
+  get value() {
+    return this._value;
+  }
+
+  public async create(func, model, prompt, option): Promise<void> {
+    const generateText = new GenerateText(func, model, prompt, option);
+    await generateText
+      .generate()
+      .then((buyerPerson) => (this._value = buyerPerson))
+      .catch((error) => {
+        throw new Error(error);
+      });
   }
 }

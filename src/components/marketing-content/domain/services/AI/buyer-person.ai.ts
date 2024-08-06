@@ -1,17 +1,36 @@
 import { Injectable } from 'src/components/shared/dependecy-injection/injectable';
 
 import { BuyerPerson } from '../../entities';
+import { BuyerPersonData } from '../../valueObjects';
 
 @Injectable()
 export class BuyerPersonAIServices {
-  create(model: any, prompt: string, option: any, generateText: any) {
-    const newBuyerPerson = BuyerPerson.create(
-      generateText,
-      model,
-      prompt,
-      option,
-    );
+  async create(
+    companyName: string,
+    companyDescription: string,
+    dataSeach: string[],
+    model: any,
+    prompt: string,
+    option: any,
+    generateText: any,
+  ) {
+    let buyerPerson: BuyerPersonData;
+    let createBuyerPerson: BuyerPerson;
 
-    return newBuyerPerson;
+    try {
+      buyerPerson = new BuyerPersonData(
+        companyName,
+        companyDescription,
+        dataSeach,
+      );
+
+      createBuyerPerson = new BuyerPerson(buyerPerson);
+      await createBuyerPerson.create(generateText, model, prompt, option);
+    } catch (error) {
+      throw error;
+    }
+
+    const apiDataGenerate = createBuyerPerson.value;
+    return apiDataGenerate;
   }
 }
