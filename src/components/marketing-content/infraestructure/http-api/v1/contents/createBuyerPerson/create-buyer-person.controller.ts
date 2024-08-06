@@ -1,19 +1,24 @@
 import { Body, Controller, Post } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+// eslint-disable-next-line import/no-unresolved
+import { MODULE_CONTENTS } from '@shared/contants';
+// eslint-disable-next-line import/no-unresolved
+import { BaseUrl, UrlBackend } from '@shared/pathsUrl';
 
 import { CreateBuyerPersonCommandHandler } from './../../../../../application/use-cases/CreateBuyerPerson/create-buyer-person.commandHandler';
 import { PROMPT_CREATE_BUYER_PERSON } from './../../../../prompts';
 import { SDK_VERCEL_MODEL_GOOGLE } from './../../../../sdk/vercel-ai';
 import { CreateBuyerPersonDto } from './create-buyer-person.dto';
-import { CREATE_BUYER_PERSON, V1_CONTENTS } from '../../../route.constants';
 
-@Controller(V1_CONTENTS)
+@ApiTags(MODULE_CONTENTS)
+@Controller(BaseUrl.V1_MO_CONTENTS)
 export class ContentsController {
   constructor(
     private readonly createBuyerPersonCommandHandler: CreateBuyerPersonCommandHandler,
   ) {}
 
-  @Post(CREATE_BUYER_PERSON)
-  async createBuyer(
+  @Post(UrlBackend.createBuyerPerson)
+  async createBuyerPerson(
     @Body() payload: CreateBuyerPersonDto,
   ): Promise<{ terms: string[] }> {
     // Descontructuon array with data model
