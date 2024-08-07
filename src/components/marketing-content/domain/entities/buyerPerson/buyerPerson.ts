@@ -1,4 +1,7 @@
-import { IGenerateText, ILanguageModel } from '@/components/shared/interfaces/ia';
+import {
+  IGenerateText,
+  ILanguageModel,
+} from '@/components/shared/interfaces/ia';
 import { GenerateText } from '../generateText';
 import { BuyerPersonData } from './../../valueObjects';
 
@@ -26,12 +29,11 @@ export class BuyerPerson {
     model: ILanguageModel,
     prompt: string,
   ): Promise<void> {
-    
-    const generateText = this.generateText
+    const generateText = this.generateText;
     // Set data to use in generateText class
-    generateText.generateTextFunc = func
-    generateText.model = model
-    generateText.prompt = prompt
+    generateText.generateTextFunc = func;
+    generateText.model = model;
+    generateText.prompt = prompt;
 
     await generateText
       .generate()

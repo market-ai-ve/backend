@@ -1,4 +1,4 @@
-import { IGenerateText, ILanguageModel } from "@shared/interfaces/ia";
+import { IGenerateText, ILanguageModel } from '@shared/interfaces/ia';
 
 export class GenerateText {
   private _generateText!: IGenerateText;
@@ -19,7 +19,6 @@ export class GenerateText {
   set prompt(prompt: string) {
     this._prompt = prompt;
   }
-
 
   async generate(): Promise<object> {
     // @ts-ignore

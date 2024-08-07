@@ -1,1 +1,1 @@
-export { GenerateText } from './generateText'
+export { GenerateText } from './generateText';
