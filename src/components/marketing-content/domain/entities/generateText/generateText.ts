@@ -31,8 +31,8 @@ export class GenerateText {
       model: this._model,
       prompt: this._prompt,
     });
-    const { text } = response;
-    const replaceText = text.replace(/```json\s*|\s*```/g, '');
+    const { text } = response; // Test: Validar casos de error (No tenemos visible alguno por el momento)
+    const replaceText = text.replace(/```json\s*|\s*```/g, ''); // Task: Separar responsabilidad de validacion del texto
     return JSON.parse(replaceText);
   }
 }
