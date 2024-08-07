@@ -2,8 +2,9 @@ import {
   IGenerateText,
   ILanguageModel,
 } from '@/components/shared/interfaces/ia';
-import { GenerateText } from '../generateText';
+
 import { BuyerPersonData } from './../../valueObjects';
+import { GenerateText } from '../generateText';
 
 export class BuyerPerson {
   private _buyerPerson: BuyerPersonData;

@@ -1,4 +1,8 @@
-import { IGenerateText, ILanguageModel } from '@shared/interfaces/ia';
+import {
+  IGenerateText,
+  ILanguageModel,
+  IGenerateTextResult,
+} from '@shared/interfaces/ia';
 
 export class GenerateText {
   private _generateText!: IGenerateText;
@@ -21,11 +25,13 @@ export class GenerateText {
   }
 
   async generate(): Promise<object> {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    const { text } = await this._generateText({
+    const response: IGenerateTextResult = await this._generateText({
       model: this._model,
       prompt: this._prompt,
     });
+    const { text } = response;
     const replaceText = text.replace(/```json\s*|\s*```/g, '');
     return JSON.parse(replaceText);
   }
