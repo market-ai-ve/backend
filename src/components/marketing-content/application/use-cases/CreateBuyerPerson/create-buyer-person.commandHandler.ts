@@ -1,6 +1,6 @@
-import { BuyerPersonAIServices } from './../../../domain/services/AI/buyer-person.ai';
 import { Injectable } from '@shared/dependecy-injection/injectable';
 
+import { BuyerPersonAIServices } from './../../../domain/services/AI/buyer-person.ai';
 import { CreateBuyerPersonDto } from './create-buyer-person.dto';
 
 @Injectable()

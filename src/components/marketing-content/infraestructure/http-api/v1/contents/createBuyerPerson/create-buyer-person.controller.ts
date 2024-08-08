@@ -1,5 +1,8 @@
+import { createGoogleGenerativeAI } from '@ai-sdk/google';
 import { Body, Controller, Inject, Post } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { ApiTags } from '@nestjs/swagger';
+
 import { MODULE_CONTENTS } from '@shared/contants';
 import { BaseUrl, UrlBackend } from '@shared/pathsUrl';
 
@@ -9,9 +12,6 @@ import { PROMPT_CREATE_BUYER_PERSON } from './../../../../prompts';
 import { SDK_VERCEL_MODEL_GOOGLE } from './../../../../sdk/vercel-ai';
 import { CreateBuyerPersonDto } from './create-buyer-person.dto';
 import { SwaggerDoc } from './documentation';
-
-import { createGoogleGenerativeAI } from '@ai-sdk/google';
-import { ConfigService } from '@nestjs/config';
 
 @ApiTags(MODULE_CONTENTS)
 @Controller(BaseUrl.V1_MO_CONTENTS)

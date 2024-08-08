@@ -1,8 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ContentsController } from './create-buyer-person.controller';
+
 import { CreateBuyerPersonCommandHandler } from '@/components/marketing-content/application/use-cases/CreateBuyerPerson';
 import { BuyerPersonAIServices } from '@/components/marketing-content/domain/services/AI/buyer-person.ai';
 import { SDK_VERCEL_MODEL_GOOGLE } from '@/components/marketing-content/infraestructure/sdk/vercel-ai';
+
+import { ContentsController } from './create-buyer-person.controller';
 
 describe('ContentsController', () => {
   let controller: ContentsController;

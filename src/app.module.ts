@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import * as Joi from 'joi';
 
 import { ContentsModule } from './components/marketing-content/infraestructure/contents.module';
-import { ConfigModule } from '@nestjs/config';
-
 import config from './config';
-import * as Joi from 'joi';
 
 @Module({
   imports: [

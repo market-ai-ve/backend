@@ -13,6 +13,8 @@ export class BuyerPerson {
 
   constructor(buyerPerson: BuyerPersonData) {
     this._buyerPerson = buyerPerson;
+    this._buyerPerson.validate(this._buyerPerson);
+
     this.generateText = new GenerateText();
   }
 
