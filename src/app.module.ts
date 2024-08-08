@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import * as Joi from 'joi';
 
-import { ContentsModule } from './components/marketing-content/infraestructure/contents.module';
+import { ContentsModule } from './components/marketing-content/infraestructure/driving-adapters/http-api/contents.module';
 import config from './config';
 
 @Module({
