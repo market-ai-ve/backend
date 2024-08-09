@@ -6,3 +6,6 @@ export const MODULE_CONTENTS = 'contents';
 
 // PATHS
 export const POST_CREATE_PERSON = 'buyer-person';
+
+// UUID VERSION
+export const UUID_VERSION = '4';
