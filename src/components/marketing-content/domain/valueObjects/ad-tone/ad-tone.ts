@@ -5,7 +5,7 @@ import {
   IsOptional,
   IsString,
   IsUUID,
-  validateOrReject,
+  validateSync,
 } from 'class-validator';
 
 import { UUID_VERSION } from '@shared/contants';
@@ -30,19 +30,17 @@ export class AdToneData
   constructor(id: UUID, tone: string) {
     this.id = id;
     this.tone = tone;
+
+    this.validate();
     this.value = { id, tone };
   }
 
-  async validate(instance: AdToneData): Promise<void> {
-    await validateOrReject(instance, {
-      whitelist: true,
-      forbidNonWhitelisted: true,
-      validationError: { target: false, value: false },
-    })
-      .then(() => true)
-      .catch((error) => {
-        throw new VOValidationError(error);
-      });
+  validate(): void {
+    const errors = validateSync(this);
+
+    if (errors.length > 0) {
+      throw new VOValidationError(errors);
+    }
   }
   equals(other: AdToneData): boolean {
     return this.id === other.id && this.tone === other.tone;

@@ -1,0 +1,1 @@
+export { EntityAdTone } from './adTone';

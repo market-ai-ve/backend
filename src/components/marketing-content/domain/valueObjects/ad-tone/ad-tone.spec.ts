@@ -17,49 +17,32 @@ describe('Test VO AdToneData', () => {
 
   describe('Test constructor', () => {
     it('Should create a valid AdToneData object', () => {
-      const id = '1-1-1-1-1';
-      const tone = 'tone 1';
-      adToneData = new AdToneData(id, tone);
-      expect(adToneData).toBeDefined();
-      expect(adToneData).toBeInstanceOf(AdToneData);
-      expect(adToneData.id).toBe(id);
-      expect(adToneData.tone).toBe(tone);
-      expect(adToneData.value).toBeDefined();
-      expect(adToneData.value).toEqual({ id, tone });
-    });
-  });
-  describe('Test validate', () => {
-    it('Should return data in value attribute when is valid success all data', async () => {
       const id = uuidv4() as UUID;
       const tone = 'tone 1';
 
       adToneData = new AdToneData(id, tone);
 
-      await adToneData.validate(adToneData);
-
+      expect(adToneData).toBeDefined();
+      expect(adToneData).toBeInstanceOf(AdToneData);
+      expect(adToneData.value).toBeDefined();
       expect(adToneData.value).toEqual({ id, tone });
-      expect(adToneData.value.id).toBe(id);
-      expect(adToneData.value.tone).toBe(tone);
     });
-
-    it('Should throw an error when id is null invalid', async () => {
+  });
+  describe('Test validate', () => {
+    it('Should throw an error when id is null invalid', () => {
       const id = null;
       const tone = 'tone 1';
 
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-expect-error
-      adToneData = new AdToneData(id, tone);
+      const run = () => new AdToneData(id, tone);
 
-      await expect(adToneData.validate(adToneData)).rejects.toThrow(
-        VOValidationError,
-      );
-      await expect(adToneData.validate(adToneData)).rejects.toThrow(
-        'id must be a UUID',
-      );
+      expect(() => run()).toThrow(VOValidationError);
+      expect(() => run()).toThrow('id must be a UUID');
     });
 
     // test to validar throw when id is uuidv1
-    it('Should throw when id is uuid version diferente to version 4', async () => {
+    it('Should throw when id is uuid version diferente to version 4', () => {
       const idV1 = uuidv1() as UUID;
 
       const NAMESPACE_DNS = uuidv3.DNS;
@@ -73,67 +56,40 @@ describe('Test VO AdToneData', () => {
 
       const tone = 'tone 1';
 
-      const adToToneDataWithidV1 = new AdToneData(idV1, tone);
-      const adToToneDataWithidV3 = new AdToneData(idV3, tone);
-      const adToToneDataWithidV5 = new AdToneData(idV5, tone);
-      const adToToneDataWithidV6 = new AdToneData(idV6, tone);
-      const adToToneDataWithidV7 = new AdToneData(idV7, tone);
+      const run = (version: UUID, toneName: string) =>
+        new AdToneData(version, toneName);
 
       // Validate version 1
-      await expect(
-        adToToneDataWithidV1.validate(adToToneDataWithidV1),
-      ).rejects.toThrow(VOValidationError);
-      await expect(
-        adToToneDataWithidV1.validate(adToToneDataWithidV1),
-      ).rejects.toThrow('id must be a UUID');
+      expect(() => run(idV1, tone)).toThrow(VOValidationError);
+      expect(() => run(idV1, tone)).toThrow('id must be a UUID');
 
       // validate version 3
-      await expect(
-        adToToneDataWithidV3.validate(adToToneDataWithidV3),
-      ).rejects.toThrow(VOValidationError);
-      await expect(
-        adToToneDataWithidV3.validate(adToToneDataWithidV3),
-      ).rejects.toThrow('id must be a UUID');
+      expect(() => run(idV3, tone)).toThrow(VOValidationError);
+      expect(() => run(idV3, tone)).toThrow('id must be a UUID');
 
       // validate version 5
-      await expect(
-        adToToneDataWithidV5.validate(adToToneDataWithidV5),
-      ).rejects.toThrow(VOValidationError);
-      await expect(
-        adToToneDataWithidV5.validate(adToToneDataWithidV5),
-      ).rejects.toThrow('id must be a UUID');
+      expect(() => run(idV5, tone)).toThrow(VOValidationError);
+      expect(() => run(idV5, tone)).toThrow('id must be a UUID');
 
       // validate version 6
-      await expect(
-        adToToneDataWithidV6.validate(adToToneDataWithidV6),
-      ).rejects.toThrow(VOValidationError);
-      await expect(
-        adToToneDataWithidV6.validate(adToToneDataWithidV6),
-      ).rejects.toThrow('id must be a UUID');
+      expect(() => run(idV6, tone)).toThrow(VOValidationError);
+      expect(() => run(idV6, tone)).toThrow('id must be a UUID');
 
       // validate version 7
-      await expect(
-        adToToneDataWithidV7.validate(adToToneDataWithidV7),
-      ).rejects.toThrow(VOValidationError);
-      await expect(
-        adToToneDataWithidV7.validate(adToToneDataWithidV7),
-      ).rejects.toThrow('id must be a UUID');
+      expect(() => run(idV7, tone)).toThrow(VOValidationError);
+      expect(() => run(idV7, tone)).toThrow('id must be a UUID');
     });
 
-    it('Should throw an error when name is null invalid', async () => {
+    it('Should throw an error when name is null invalid', () => {
       const id = uuidv4() as UUID;
       const tone = null;
 
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-expect-error
-      adToneData = new AdToneData(id, tone);
+      const run = () => new AdToneData(id, tone);
 
-      await expect(adToneData.validate(adToneData)).rejects.toThrow(
-        VOValidationError,
-      );
-      await expect(adToneData.validate(adToneData)).rejects.toThrow(
-        'tone must be a string',
-      );
+      expect(() => run()).toThrow(VOValidationError);
+      expect(() => run()).toThrow('tone must be a string');
     });
   });
   describe('Test equals', () => {

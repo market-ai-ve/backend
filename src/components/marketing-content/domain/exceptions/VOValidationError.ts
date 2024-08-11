@@ -18,6 +18,10 @@ export class VOValidationError extends Error {
     }
 
     super(err);
+
+    // Set a custom name for this error type
+    this.name = 'VOValidationError';
+
     // Use Error.captureStackTrace for better stack trace management.
     Error.captureStackTrace(this, VOValidationError);
   }
