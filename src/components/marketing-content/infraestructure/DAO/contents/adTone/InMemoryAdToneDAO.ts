@@ -9,11 +9,8 @@ import { IAdToneDAOSync } from '@/components/marketing-content/domain/repositori
 import { AdToneInMemory } from '../../../persistence/InMemory';
 
 export class InMemoryAdToneDAO implements IAdToneDAOSync {
-  private readonly db: AdToneInMemory;
+  private readonly db: AdToneInMemory = new AdToneInMemory([]);
 
-  constructor(db: AdToneInMemory) {
-    this.db = db;
-  }
   findAll(): IAdTone[] | null {
     return this.db.findAll();
   }
@@ -29,5 +26,8 @@ export class InMemoryAdToneDAO implements IAdToneDAOSync {
   }
   delete(id: UUID): void | null {
     this.db.delete(id);
+
+    const findAdToneDeleted = this.findById(id);
+    if (findAdToneDeleted) return null;
   }
 }

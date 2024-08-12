@@ -1,15 +1,12 @@
 import { UUID } from 'crypto';
 
 import { InMemoryAdToneDAO } from './InMemoryAdToneDAO';
-import { AdToneInMemory } from '../../../persistence/InMemory';
 
 describe('InMemoryAdToneDAO', () => {
   let dao: InMemoryAdToneDAO;
-  let db: AdToneInMemory;
 
   beforeEach(() => {
-    db = new AdToneInMemory([]);
-    dao = new InMemoryAdToneDAO(db);
+    dao = new InMemoryAdToneDAO();
   });
 
   it('should save an ad tone', () => {
