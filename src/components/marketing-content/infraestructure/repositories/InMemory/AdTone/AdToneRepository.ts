@@ -18,10 +18,6 @@ export class InMemoryAdToneRepository implements IAdToneRepositorySync {
   findById(id: UUID): IAdTone | null {
     const db = this.adToneDAO;
     const findAdTone = db.findById(id);
-    console.log(
-      '🚀 ~ InMemoryAdToneRepository ~ findById ~ findAdTone:',
-      findAdTone,
-    );
 
     if (!findAdTone) return null;
     return findAdTone;
