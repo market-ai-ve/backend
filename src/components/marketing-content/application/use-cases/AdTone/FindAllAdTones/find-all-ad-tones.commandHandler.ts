@@ -6,7 +6,6 @@ export class FindAllAdTonesCommandHandler {
   constructor(private service: AdToneServiceSync) {}
 
   run() {
-    return [];
-    // return this.service.findAll();
+    return this.service.findAll();
   }
 }

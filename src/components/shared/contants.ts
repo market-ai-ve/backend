@@ -9,3 +9,6 @@ export const POST_CREATE_PERSON = 'buyer-person';
 
 // UUID VERSION
 export const UUID_VERSION = '4';
+
+// Injects
+export const ADTONE_REPOSITORY = 'ADTONE_REPOSITORY';

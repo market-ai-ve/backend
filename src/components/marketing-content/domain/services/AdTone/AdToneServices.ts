@@ -1,5 +1,8 @@
 import { UUID } from 'crypto';
 
+import { Inject } from '@nestjs/common';
+
+import { ADTONE_REPOSITORY } from '@/components/shared/contants';
 import { Injectable } from '@/components/shared/dependecy-injection/injectable';
 
 import { ICreateAdTone, IUpdateAdTone } from '../../interfaces/IAdTone';
@@ -7,9 +10,10 @@ import type { IAdToneRepositorySync } from '../../repositories';
 
 @Injectable()
 export class AdToneServiceSync {
-  private repository: IAdToneRepositorySync;
-
-  constructor(repository: IAdToneRepositorySync) {
+  constructor(
+    @Inject(ADTONE_REPOSITORY)
+    private readonly repository: IAdToneRepositorySync,
+  ) {
     this.repository = repository;
   }
 
