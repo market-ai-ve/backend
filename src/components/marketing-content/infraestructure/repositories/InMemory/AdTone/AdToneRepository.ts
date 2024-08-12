@@ -1,11 +1,14 @@
 import { UUID } from 'crypto';
 
+import { Injectable } from '@/components/shared/dependecy-injection/injectable';
+
 import { IAdTone, ICreateAdTone } from '../../../../domain/interfaces/IAdTone';
 import { IAdToneRepositorySync } from '../../../../domain/repositories';
 import { dao } from '../../../DAO';
 
 const { InMemoryAdToneDAO } = dao.contents.inMemory;
 
+@Injectable()
 export class InMemoryAdToneRepository implements IAdToneRepositorySync {
   private adToneDAO = new InMemoryAdToneDAO();
 

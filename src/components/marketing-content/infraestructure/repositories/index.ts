@@ -1,1 +1,1 @@
-export { AdToneRepository } from './InMemory/AdTone/AdToneRepository';
+export { InMemoryAdToneRepository } from './InMemory/AdTone/AdToneRepository';

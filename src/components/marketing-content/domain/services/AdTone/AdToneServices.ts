@@ -1,8 +1,11 @@
 import { UUID } from 'crypto';
 
-import { ICreateAdTone, IUpdateAdTone } from '../../interfaces/IAdTone';
-import { IAdToneRepositorySync } from '../../repositories';
+import { Injectable } from '@/components/shared/dependecy-injection/injectable';
 
+import { ICreateAdTone, IUpdateAdTone } from '../../interfaces/IAdTone';
+import type { IAdToneRepositorySync } from '../../repositories';
+
+@Injectable()
 export class AdToneServiceSync {
   private repository: IAdToneRepositorySync;
 
