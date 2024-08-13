@@ -1,6 +1,6 @@
 import { Injectable } from '@shared/dependecy-injection/injectable';
 
-import { BuyerPerson } from '../../entities';
+import { EntityBuyerPerson } from '../../entities';
 import { BuyerPersonData } from '../../valueObjects';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class BuyerPersonAIServices {
     generateText: any,
   ) {
     let buyerPerson: BuyerPersonData;
-    let createBuyerPerson: BuyerPerson;
+    let createBuyerPerson: EntityBuyerPerson;
 
     try {
       buyerPerson = new BuyerPersonData(
@@ -24,7 +24,7 @@ export class BuyerPersonAIServices {
         dataSeach,
       );
 
-      createBuyerPerson = new BuyerPerson(buyerPerson);
+      createBuyerPerson = new EntityBuyerPerson(buyerPerson);
       await createBuyerPerson.create(generateText, model, prompt);
     } catch (error) {
       throw error;

@@ -1,6 +1,6 @@
 import { IGenerateText, ILanguageModel } from '@shared/interfaces/ia';
 
-import { BuyerPerson } from './buyerPerson';
+import { EntityBuyerPerson } from './buyerPerson';
 import { BuyerPersonData } from '../../valueObjects';
 
 const fakeBuyerPerson = new BuyerPersonData(
@@ -33,8 +33,8 @@ const fakeResponseBuyerPerson = {
     '',
 };
 
-describe('Entity BuyerPerson', () => {
-  let entity: BuyerPerson;
+describe('EntityBuyerPerson', () => {
+  let entity: EntityBuyerPerson;
   let mockGenerateText: jest.Mock;
   let mockSpyGenerate: jest.Mock;
 
@@ -59,7 +59,7 @@ describe('Entity BuyerPerson', () => {
       };
     });
 
-    entity = new BuyerPerson(fakeBuyerPerson);
+    entity = new EntityBuyerPerson(fakeBuyerPerson);
   });
 
   afterEach(() => {

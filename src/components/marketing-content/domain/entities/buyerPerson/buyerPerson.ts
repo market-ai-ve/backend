@@ -6,7 +6,7 @@ import {
 import { BuyerPersonData } from './../../valueObjects';
 import { GenerateText } from '../generateText';
 
-export class BuyerPerson {
+export class EntityBuyerPerson {
   private _buyerPerson: BuyerPersonData;
   private _value: object = {};
   generateText: GenerateText;

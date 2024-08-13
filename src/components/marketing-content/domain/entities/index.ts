@@ -1,5 +1,5 @@
 // Entity Buyer Person
-export { BuyerPerson } from './buyerPerson';
+export { EntityBuyerPerson } from './buyerPerson';
 export { GenerateText } from './generateText';
 
 // Entity ad tone
