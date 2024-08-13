@@ -30,138 +30,108 @@ describe('Test Value Object Buyer person data', () => {
   });
 
   describe('Attribute Company Name', () => {
-    it('Should throw error when companyName is empty', async () => {
+    it('Should throw error when companyName is empty', () => {
       const name = '';
       const description = 'Description';
       const search = arrayData;
 
-      const valueObject = new BuyerPersonData(name, description, search);
+      const run = () => new BuyerPersonData(name, description, search);
 
-      await expect(valueObject.validate(valueObject)).rejects.toThrow(
-        'companyName should not be empty',
-      );
-      await expect(valueObject.validate(valueObject)).rejects.toThrow(
-        VOValidationError,
-      );
+      expect(() => run()).toThrow('companyName should not be empty');
+      expect(() => run()).toThrow(VOValidationError);
     });
 
-    it('Should throw error when companyName is not string', async () => {
+    it('Should throw error when companyName is not string', () => {
       const name = 0;
       const description = 'Description';
       const search = arrayData;
 
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-expect-error
-      const valueObject = new BuyerPersonData(name, description, search);
+      const run = () => new BuyerPersonData(name, description, search);
 
-      await expect(valueObject.validate(valueObject)).rejects.toThrow(
-        'companyName must be a string',
-      );
-      await expect(valueObject.validate(valueObject)).rejects.toThrow(
-        VOValidationError,
-      );
+      expect(() => run()).toThrow('companyName must be a string');
+      expect(() => run()).toThrow(VOValidationError);
     });
 
-    it('Should throw error when companyName is null', async () => {
+    it('Should throw error when companyName is null', () => {
       const name = null;
       const description = 'Description';
       const search = arrayData;
 
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      const valueObject = new BuyerPersonData(name, description, search);
+      // @ts-expect-error
+      const run = () => new BuyerPersonData(name, description, search);
 
-      await expect(valueObject.validate(valueObject)).rejects.toThrow(
-        'companyName must be a string',
-      );
-      await expect(valueObject.validate(valueObject)).rejects.toThrow(
-        VOValidationError,
-      );
+      expect(() => run()).toThrow('companyName must be a string');
+      expect(() => run()).toThrow(VOValidationError);
     });
 
-    it('Should throw error when companyName is undefined', async () => {
+    it('Should throw error when companyName is undefined', () => {
       const name = undefined;
       const description = 'Description';
       const search = arrayData;
 
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      const valueObject = new BuyerPersonData(name, description, search);
+      // @ts-expect-error
+      const run = () => new BuyerPersonData(name, description, search);
 
-      await expect(valueObject.validate(valueObject)).rejects.toThrow(
-        'companyName must be a string',
-      );
-      await expect(valueObject.validate(valueObject)).rejects.toThrow(
-        VOValidationError,
-      );
+      expect(() => run()).toThrow('companyName must be a string');
+      expect(() => run()).toThrow(VOValidationError);
     });
   });
 
   describe('Attribute Company Description', () => {
-    it('Should throw error when companyDescription is empty', async () => {
+    it('Should throw error when companyDescription is empty', () => {
       const name = 'name';
       const description = '';
       const search = arrayData;
 
-      const valueObject = new BuyerPersonData(name, description, search);
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      const run = () => new BuyerPersonData(name, description, search);
 
-      await expect(valueObject.validate(valueObject)).rejects.toThrow(
-        'companyDescription should not be empty',
-      );
-      await expect(valueObject.validate(valueObject)).rejects.toThrow(
-        VOValidationError,
-      );
+      expect(() => run()).toThrow('companyDescription should not be empty');
+      expect(() => run()).toThrow(VOValidationError);
     });
 
-    it('Should throw error when companyDescription is not string', async () => {
+    it('Should throw error when companyDescription is not string', () => {
       const name = 'Name';
       const description = 0;
       const search = arrayData;
 
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-expect-error
-      const valueObject = new BuyerPersonData(name, description, search);
+      const run = () => new BuyerPersonData(name, description, search);
 
-      await expect(valueObject.validate(valueObject)).rejects.toThrow(
-        'companyDescription must be a string',
-      );
-      await expect(valueObject.validate(valueObject)).rejects.toThrow(
-        VOValidationError,
-      );
+      expect(() => run()).toThrow('companyDescription must be a string');
+      expect(() => run()).toThrow(VOValidationError);
     });
 
-    it('Should throw error when companyDescription is null', async () => {
+    it('Should throw error when companyDescription is null', () => {
       const name = 'name';
       const description = null;
       const search = arrayData;
 
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      const valueObject = new BuyerPersonData(name, description, search);
+      const run = () => new BuyerPersonData(name, description, search);
 
-      await expect(valueObject.validate(valueObject)).rejects.toThrow(
-        'companyDescription must be a string',
-      );
-      await expect(valueObject.validate(valueObject)).rejects.toThrow(
-        VOValidationError,
-      );
+      expect(() => run()).toThrow('companyDescription must be a string');
+      expect(() => run()).toThrow(VOValidationError);
     });
 
-    it('Should throw error when companyDescription is undefined', async () => {
+    it('Should throw error when companyDescription is undefined', () => {
       const name = 'name';
       const description = undefined;
       const search = arrayData;
 
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      const valueObject = new BuyerPersonData(name, description, search);
+      const run = () => new BuyerPersonData(name, description, search);
 
-      await expect(valueObject.validate(valueObject)).rejects.toThrow(
-        'companyDescription must be a string',
-      );
-      await expect(valueObject.validate(valueObject)).rejects.toThrow(
-        VOValidationError,
-      );
+      expect(() => run()).toThrow('companyDescription must be a string');
+      expect(() => run()).toThrow(VOValidationError);
     });
   });
 
@@ -172,20 +142,13 @@ describe('Test Value Object Buyer person data', () => {
 
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-expect-error
-      const isNotArray = new BuyerPersonData(name, description, 'string');
-      const isArrayEmpty = new BuyerPersonData(name, description, []);
-      const elementNotAllowed = new BuyerPersonData(name, description, [
-        'Is software developer',
-      ]);
-      const isArrayNoUnique = new BuyerPersonData(name, description, [
-        'Genero',
-        'Genero',
-      ]);
+      const run = (name, description, dataSearch) =>
+        new BuyerPersonData(name, description, dataSearch);
 
-      expect(isNotArray.validate(isNotArray)).rejects.toThrow();
-      expect(isArrayEmpty.validate(isArrayEmpty)).rejects.toThrow();
-      expect(elementNotAllowed.validate(elementNotAllowed)).rejects.toThrow();
-      expect(isArrayNoUnique.validate(isArrayNoUnique)).rejects.toThrow();
+      expect(() => run(name, description, 'string')).toThrow();
+      expect(() => run(name, description, [])).toThrow();
+      expect(() => run(name, description, ['Is software developer'])).toThrow();
+      expect(() => run(name, description, ['Genero', 'Genero'])).toThrow();
     });
   });
 

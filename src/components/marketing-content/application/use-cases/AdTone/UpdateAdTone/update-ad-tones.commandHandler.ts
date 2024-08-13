@@ -1,4 +1,4 @@
-import { UUID } from 'crypto';
+import { UUID } from 'node:crypto';
 
 import { IUpdateAdTone } from '@/components/marketing-content/domain/interfaces/IAdTone';
 import { AdToneServiceSync } from '@/components/marketing-content/domain/services';

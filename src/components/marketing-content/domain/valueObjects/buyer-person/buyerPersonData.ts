@@ -6,7 +6,7 @@ import {
   IsNotEmpty,
   IsOptional,
   IsString,
-  validateOrReject,
+  validateSync,
 } from 'class-validator';
 
 import { VOValidationError } from '../../exceptions';
@@ -20,11 +20,11 @@ interface Value {
 export class BuyerPersonData {
   @IsNotEmpty()
   @IsString()
-  public companyName!: string;
+  public companyName: string;
 
   @IsNotEmpty()
   @IsString()
-  public companyDescription!: string;
+  public companyDescription: string;
 
   @IsArray()
   @ArrayNotEmpty()
@@ -42,7 +42,7 @@ export class BuyerPersonData {
     ],
     { each: true },
   )
-  public dataSearch!: string[];
+  public dataSearch: string[];
 
   @IsOptional()
   public value?: Value;
@@ -55,6 +55,8 @@ export class BuyerPersonData {
     this.companyName = companyName;
     this.companyDescription = companyDescription;
     this.dataSearch = dataSearch;
+
+    this.validate();
     this.value = {
       companyName,
       companyDescription,
@@ -62,16 +64,12 @@ export class BuyerPersonData {
     };
   }
 
-  async validate(instance: BuyerPersonData) {
-    await validateOrReject(instance, {
-      whitelist: true,
-      forbidNonWhitelisted: true,
-      validationError: { target: false, value: false },
-    })
-      .then(() => true)
-      .catch((error) => {
-        throw new VOValidationError(error);
-      });
+  validate() {
+    const errors = validateSync(this);
+
+    if (errors.length > 0) {
+      throw new VOValidationError(errors);
+    }
   }
 
   equals(other: BuyerPersonData) {

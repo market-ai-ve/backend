@@ -1,4 +1,4 @@
-import { UUID } from 'crypto';
+import { UUID } from 'node:crypto';
 
 import { AdToneServiceSync } from '@/components/marketing-content/domain/services';
 import { Injectable } from '@/components/shared/dependecy-injection/injectable';
