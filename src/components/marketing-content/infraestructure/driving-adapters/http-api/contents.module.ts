@@ -1,11 +1,13 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
-import { CreateAdToneCommandHandler } from '@/components/marketing-content/application/use-cases/AdTone/CreateAdTone';
-import { DeleteAdToneCommandHandler } from '@/components/marketing-content/application/use-cases/AdTone/DeleteAdTone/delete-ad-tones.commandHandler';
-import { FindAllAdTonesCommandHandler } from '@/components/marketing-content/application/use-cases/AdTone/FindAllAdTones';
-import { FindOneAdTonesCommandHandler } from '@/components/marketing-content/application/use-cases/AdTone/FindOneAdTone';
-import { UpdateAdToneCommandHandler } from '@/components/marketing-content/application/use-cases/AdTone/UpdateAdTone/update-ad-tones.commandHandler';
+import {
+  CreateAdToneCommandHandler,
+  DeleteAdToneCommandHandler,
+  FindAllAdTonesCommandHandler,
+  FindOneAdTonesCommandHandler,
+  UpdateAdToneCommandHandler,
+} from '@/components/marketing-content/application/use-cases/AdTone';
 import { AdToneServiceSync } from '@/components/marketing-content/domain/services';
 import { ADTONE_REPOSITORY } from '@/components/shared/contants';
 

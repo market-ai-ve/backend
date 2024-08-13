@@ -6,6 +6,7 @@ export const MODULE_CONTENTS = 'contents';
 
 // PATHS
 export const POST_CREATE_PERSON = 'buyer-person';
+export const AD_TONE = 'ad-tones';
 
 // UUID VERSION
 export const UUID_VERSION = '4';
