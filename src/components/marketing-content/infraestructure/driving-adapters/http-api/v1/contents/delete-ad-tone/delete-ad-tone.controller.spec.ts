@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { DeleteAdToneCommandHandler } from '@/components/marketing-content/application/use-cases/AdTone/DeleteAdTone/delete-ad-tones.commandHandler';
+import { DeleteAdToneCommandHandler } from '@/components/marketing-content/application/use-cases/AdTone';
 import { AdToneServiceSync } from '@/components/marketing-content/domain/services';
 import { InMemoryAdToneRepository } from '@/components/marketing-content/infraestructure/repositories';
 import { ADTONE_REPOSITORY } from '@/components/shared/contants';

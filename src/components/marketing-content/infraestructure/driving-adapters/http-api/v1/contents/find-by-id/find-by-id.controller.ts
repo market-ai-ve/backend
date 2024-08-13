@@ -1,6 +1,6 @@
 import { Controller, Get, Param } from '@nestjs/common';
 
-import { FindOneAdTonesCommandHandler } from '@/components/marketing-content/application/use-cases/AdTone/FindOneAdTone';
+import { FindOneAdTonesCommandHandler } from '@/components/marketing-content/application/use-cases/AdTone';
 import { AdToneServiceSync } from '@/components/marketing-content/domain/services';
 import { InMemoryAdToneRepository } from '@/components/marketing-content/infraestructure/repositories';
 

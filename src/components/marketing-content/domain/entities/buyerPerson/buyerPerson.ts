@@ -13,7 +13,6 @@ export class EntityBuyerPerson {
 
   constructor(buyerPerson: BuyerPersonData) {
     this._buyerPerson = buyerPerson;
-    this._buyerPerson.validate(this._buyerPerson);
 
     this.generateText = new EntityGenerateText();
   }

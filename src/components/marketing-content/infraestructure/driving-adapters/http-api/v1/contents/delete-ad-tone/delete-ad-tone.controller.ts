@@ -2,7 +2,7 @@ import { UUID } from 'node:crypto';
 
 import { Controller, Delete, Param } from '@nestjs/common';
 
-import { DeleteAdToneCommandHandler } from '@/components/marketing-content/application/use-cases/AdTone/DeleteAdTone/delete-ad-tones.commandHandler';
+import { DeleteAdToneCommandHandler } from '@/components/marketing-content/application/use-cases/AdTone';
 import { AdToneServiceSync } from '@/components/marketing-content/domain/services';
 import { InMemoryAdToneRepository } from '@/components/marketing-content/infraestructure/repositories';
 
