@@ -1,4 +1,4 @@
-import { UUID } from 'crypto';
+import { UUID } from 'node:crypto';
 
 import { v4 as uuidv4 } from 'uuid';
 

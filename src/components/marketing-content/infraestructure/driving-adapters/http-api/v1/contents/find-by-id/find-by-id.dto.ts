@@ -1,4 +1,4 @@
-import { UUID } from 'crypto';
+import { UUID } from 'node:crypto';
 
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsUUID } from 'class-validator';

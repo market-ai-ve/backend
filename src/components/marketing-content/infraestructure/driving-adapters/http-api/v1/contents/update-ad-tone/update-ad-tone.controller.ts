@@ -1,4 +1,4 @@
-import { UUID } from 'crypto';
+import { UUID } from 'node:crypto';
 
 import { Body, Controller, Param, Patch } from '@nestjs/common';
 

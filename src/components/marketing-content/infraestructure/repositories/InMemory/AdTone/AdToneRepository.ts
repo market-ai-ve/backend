@@ -1,4 +1,4 @@
-import { UUID } from 'crypto';
+import { UUID } from 'node:crypto';
 
 import { Injectable } from '@/components/shared/dependecy-injection/injectable';
 
