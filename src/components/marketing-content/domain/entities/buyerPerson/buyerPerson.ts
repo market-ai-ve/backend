@@ -4,18 +4,18 @@ import {
 } from '@/components/shared/interfaces/ia';
 
 import { BuyerPersonData } from './../../valueObjects';
-import { GenerateText } from '../generateText';
+import { EntityGenerateText } from '../generateText';
 
 export class EntityBuyerPerson {
   private _buyerPerson: BuyerPersonData;
   private _value: object = {};
-  generateText: GenerateText;
+  generateText: EntityGenerateText;
 
   constructor(buyerPerson: BuyerPersonData) {
     this._buyerPerson = buyerPerson;
     this._buyerPerson.validate(this._buyerPerson);
 
-    this.generateText = new GenerateText();
+    this.generateText = new EntityGenerateText();
   }
 
   // Getters

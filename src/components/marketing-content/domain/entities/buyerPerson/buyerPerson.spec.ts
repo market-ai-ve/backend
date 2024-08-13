@@ -44,7 +44,7 @@ describe('EntityBuyerPerson', () => {
 
     jest.doMock('./../generateText/generateText', () => {
       return {
-        GenerateText: mockGenerateText.mockImplementation(() => ({
+        EntityGenerateText: mockGenerateText.mockImplementation(() => ({
           generate: mockSpyGenerate,
           set generateTextFunc(fn: IGenerateText) {
             this._generateText = fn;

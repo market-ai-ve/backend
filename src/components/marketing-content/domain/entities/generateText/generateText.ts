@@ -4,7 +4,7 @@ import {
   IGenerateTextResult,
 } from '@shared/interfaces/ia';
 
-export class GenerateText {
+export class EntityGenerateText {
   private _generateText!: IGenerateText;
   private _model!: ILanguageModel;
   private _prompt!: string;
